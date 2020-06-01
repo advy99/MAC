@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+
+\title{Ejercicio 11 Relación 5}
+\author{---- \\ ---}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Consideremos el problema anterior, pero ahora con dos tipos de paréntesis (, ) y [, ]. Demostrar que determinar si están bien escritos también está en L. Aquı́ ([]()) está permitido, pero ([)] no. Demostrar que si la entrada se lee de izquierda a derecha sin volver hacia atrás, requieren O(n) de memoria.\\
+\\
+Este problema se puede resolver con una MT determinista con tres cintas:
+\begin{itemize}
+    \item 1º cinta: Entrada. Solo leerme en esta cinta.
+    \item 2º cinta: Al principio vacía, la usaremos de contador, que empezará a 0.
+\end{itemize}
+
+Cada vez que encontremos `(' en la cinta sumamos 1 a la segunda. Cada vez que encontremos `)' restamos 1 a la cinta, pero antes de restar, comprobamos si es 0. Si es 0 y vamos a restar 1, no están emparejados y por tanto, rechazamos.\\
+Si llegamos al final de la 1º cinta y la 2º cinta contiene un numero distinto a 0 rechazamos, si es igual a 0 aceptamos.
+
+\section{Máquina de Turing}
+\begin{lstlisting}
+    Mientras el simbolo de la cinta 1 != #
+        Si el simbolo de la cinta 1 == `('
+            Sumamos 1 en la cinta 2
+        Si no
+            Si la cinta 2 == 0
+                Rechazamos
+            Si no
+                Restamos 1 en la cinta 2
+    Si la cinta 2 == 0
+        Aceptamos
+    Si no
+        Rechazamos
+\end{lstlisting}
+
+Como solo escribimos en la 2º cinta, solo tendremos en cuenta esto. Nos damos cuenta que a lo sumo vamos a contar cuantos símbolos tiene la entrada ( el numero más grande que escribimos es el numero de `(', luego para la entrada `((((' estamos contando su longitud) y sabemos que para escribir un número x necesitamos $log(x)$ espacio, en el caso de usar binario $log_{2}(x)$, luego el problema esta en L.
+
+\end{document}
