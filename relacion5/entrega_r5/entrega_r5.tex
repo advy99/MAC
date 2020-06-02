@@ -20,8 +20,14 @@ Para este ejercicio se nos pide demostrar que si un lenguaje $L$ está en la cla
 
 \section*{Ejercicio 2: Demostrar que todo lenguaje regular está en L.}
 
+Para aceptar o rechazar un lenguaje regular no tienes que escribir, por lo que al usar 0 espacio todo lenguaje regular está en L.
+
 \section*{Ejercicio 3:}
 
-Sea $MULT = \{a * b * c tales$ tales que a, b y c son números naturales en binario y $a  b = c\}$. Demostrar que $MULT \in L$
+\Large{\textbf{Sea $MULT = \{a * b * c$ tales que a, b y c son números naturales en binario y $a  b = c\}$. Demostrar que $MULT \in L$}}
+\\
+
+\normalsize
+Básicamente comprobar que $n + m < log_2(2n + 2m)$, siendo $n = |a|$ y $m = |b|$, ya que sabemos que la multiplicación como mucho es de longitud $n + l$ y en la cinta de datos tenemos $2n + 2m$ a lo mucho.
 
 \end{document}
