@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{vmargin}
@@ -40,13 +40,19 @@ De esta forma, al solo leer símbolos de la entrada, y los únicos símbolos par
 
 \newpage
 
-\section*{Ejercicio 3:}
 
-\Large{\textbf{Sea $MULT = \{a * b * c$ tales que a, b y c son números naturales en binario y $a  b = c\}$. Demostrar que $MULT \in L$}}
+\Large{\textbf{Ejercicio 3: Sea $MULT = \{a * b * c$ tales que a, b y c son números naturales en binario y $a  b = c\}$. Demostrar que $MULT \in L$}}
 \\
 
 \normalsize
-Para realizar esta demostración tenemos que encontrar una MT determinista que acepte $MULT$ en espacio logarítmico.
+Para realizar esta demostración tenemos que encontrar una MT determinista que acepte $MULT$ en espacio logarítmico.\\
 
+Para hacer esta MT usaremos una MT con dos cintas, en la primera la entrada y en la segunda calcularemos la multiplicación de $a  b$.\\
+
+Para la multiplicación utilizaremos una única cinta en la que al principio tendrá un 0 y haremos la suma del producto del bit menos significativo de $b$ por $a$, tras esto haremos la suma del producto del segundo bit menos significativo de $b$ por $a$, pero comenzaremos a sumar en la segunda posición (desplazándonos uno desde el inicio), de forma que realizaremos las $|b|$ multiplicaciones de todos los bits por $a$ y en cada multiplicación sumaremos el resultado a esta cinta desde la posición $i$ siendo $i$ el indice bit que estamos multiplicando para realizar las sumas de forma correcta.\\
+
+Por último comprobaremos el resultado comparándolo con $c$, y en este proceso no realizaremos ninguna escritura, solo lecturas, por lo tanto el número de escrituras es el del proceso de multiplicación descrito.\\
+
+Como el proceso descrito utiliza únicamente una cinta y en cada producto realiza la suma, en total utiliza tantas casillas como dígitos sean necesarios para escribir el resultado, de forma que si multiplicamos $a$ x $b$ en total necesitaremos $log_2(a$ x $b)$ casillas, luego el problema está en $L$.
 
 \end{document}
