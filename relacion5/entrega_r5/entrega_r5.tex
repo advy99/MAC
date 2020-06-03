@@ -18,6 +18,17 @@
 
 Para este ejercicio se nos pide demostrar que si un lenguaje $L$ está en la clase $NL$ entonces $L^*$ está también en la clase $NL$.
 
+Supongamos que tenemos un lenguaje $L = \{0, 1\}$ en binario.
+
+Para demostrar que NL es cerrado para la clausura de Kleene usaremos el problema de existencia de un camino en un grafo $G$ dirigido. Este problema dice que dado un grafo dirigido con la siguiente representación:
+
+$$ (x_1, y_1)|...|(x_m, y_m) $$
+
+Siendo $x_i$ y $y_i$ vértices numerados en binario. El problema es si dado dos vértices $s$ y $t$, existe un camino de longitud $l$ desde $s$ hasta $t$ en $G$. \\
+
+
+Este problema sabemos que es NL-Completo, y además vemos como todos los caminos que se pueden formar representan las cadenas formadas por $L^*$, luego como tenemos un lenguaje $L$ que se reconoce en $NL$, cualquier palabra de $L^*$, como hemos demostrado con este problema, se puede reconocer también en NL, haciendo NL cerrado para la clausura de Kleene.
+
 \section*{Ejercicio 2: Demostrar que todo lenguaje regular está en L.}
 
 Para aceptar o rechazar un lenguaje regular no tienes que escribir, por lo que al usar 0 espacio todo lenguaje regular está en L.
