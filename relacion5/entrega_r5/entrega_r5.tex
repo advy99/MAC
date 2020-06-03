@@ -18,7 +18,7 @@
 
 Para este ejercicio se nos pide demostrar que si un lenguaje $L$ está en la clase $NL$ entonces $L^*$ está también en la clase $NL$.\\
 
-Supongamos que tenemos un lenguaje $L = \{0, 1\}$ en binario.
+Supongamos que tenemos un lenguaje binario $L = \{0, 1\}$.
 
 Para demostrar que NL es cerrado para la clausura de Kleene usaremos el problema de existencia de un camino en un grafo $G$ dirigido. Este problema dice que dado un grafo dirigido con la siguiente representación:
 
@@ -27,15 +27,18 @@ $$ (x_1, y_1)|...|(x_m, y_m) $$
 Siendo $x_i$ y $y_i$ vértices numerados en binario. El problema es si dado dos vértices $s$ y $t$, existe un camino de longitud $l$ desde $s$ hasta $t$ en $G$. \\
 
 
-Este problema sabemos que es NL-Completo, y además vemos como todos los caminos que se pueden formar representan las cadenas formadas por $L^*$, luego como tenemos un lenguaje $L$ que se reconoce en $NL$, cualquier palabra de $L^*$, como hemos demostrado con este problema, se puede reconocer también en NL, haciendo NL cerrado para la clausura de Kleene.
+Este problema sabemos que es NL-Completo, y además vemos como todos los caminos que se pueden formar representan cadenas en $L^*$, luego como tenemos un lenguaje $L$ que se reconoce en $NL$, cualquier palabra de $L^*$, como hemos demostrado con este problema, se puede reconocer también en $NL$, haciendo $NL$ cerrado para la clausura de Kleene.
 
 \section*{Ejercicio 2: Demostrar que todo lenguaje regular está en L.}
 
 	Al ser un lenguaje regular, sabemos que este es aceptado por un Autómata Finito Determinista. \\
 
-Dichos autómatas no utilizan memoria, e incluso podemos hacer una MT determinista que simule a dicho autómata, haciendo que solo se mueva a la derecha, tenga el mismo número de estados que el AFD y que por cada transición del AFD tenemos una transición de nuestra MT que se mueve a la derecha, y la transición entre estados sea equivalente (cuando el AFD pasa a un estado $q_i$ nuestra MT pasará al estado $q_i$ equivalente) y lo más importante, no escribe en ninguna otra casilla, por lo que solamente lee símbolos de la cinta de entrada.\\
+Dichos autómatas no utilizan memoria, e incluso podemos hacer una MT determinista que simule a dicho autómata, haciendo que solo se mueva a la derecha, tenga el mismo número de estados que el AFD y que por cada transición del AFD tenemos una transición de nuestra MT que se mueve a la derecha, la transición entre estados sea equivalente (cuando el AFD pasa a un estado $q_i$ nuestra MT pasará al estado $q_i$ equivalente), al entrar en un estado de error la MT rechazaría, la MT solo aceptaría al llegar a un estado de aceptación y lo más importante, no escribe en ninguna casilla, por lo que solamente lee símbolos de la cinta de entrada.\\
 
 De esta forma, al solo leer símbolos de la entrada, y los únicos símbolos para comprobar que está en espacio $L$ son los nuevos escritos, esta MT se encuentra en espacio $L$, y por lo tanto todo lenguaje regular está en $L$.
+
+
+\newpage
 
 \section*{Ejercicio 3:}
 
@@ -43,6 +46,7 @@ De esta forma, al solo leer símbolos de la entrada, y los únicos símbolos par
 \\
 
 \normalsize
-Básicamente comprobar que $n + m < log_2(2n + 2m)$, siendo $n = |a|$ y $m = |b|$, ya que sabemos que la multiplicación como mucho es de longitud $n + l$ y en la cinta de datos tenemos $2n + 2m$ a lo mucho.
+Para realizar esta demostración tenemos que encontrar una MT determinista que acepte $MULT$ en espacio logarítmico.
+
 
 \end{document}
