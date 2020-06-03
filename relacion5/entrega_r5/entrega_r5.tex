@@ -16,7 +16,7 @@
 
 \section*{Ejercicio 1: Demostrar que NL es cerrado para la clausura de Kleene.}
 
-Para este ejercicio se nos pide demostrar que si un lenguaje $L$ está en la clase $NL$ entonces $L^*$ está también en la clase $NL$.
+Para este ejercicio se nos pide demostrar que si un lenguaje $L$ está en la clase $NL$ entonces $L^*$ está también en la clase $NL$.\\
 
 Supongamos que tenemos un lenguaje $L = \{0, 1\}$ en binario.
 
@@ -31,7 +31,11 @@ Este problema sabemos que es NL-Completo, y además vemos como todos los caminos
 
 \section*{Ejercicio 2: Demostrar que todo lenguaje regular está en L.}
 
-Para aceptar o rechazar un lenguaje regular no tienes que escribir, por lo que al usar 0 espacio todo lenguaje regular está en L.
+	Al ser un lenguaje regular, sabemos que este es aceptado por un Autómata Finito Determinista. \\
+
+Dichos autómatas no utilizan memoria, e incluso podemos hacer una MT determinista que simule a dicho autómata, haciendo que solo se mueva a la derecha, tenga el mismo número de estados que el AFD y que por cada transición del AFD tenemos una transición de nuestra MT que se mueve a la derecha, y la transición entre estados sea equivalente (cuando el AFD pasa a un estado $q_i$ nuestra MT pasará al estado $q_i$ equivalente) y lo más importante, no escribe en ninguna otra casilla, por lo que solamente lee símbolos de la cinta de entrada.\\
+
+De esta forma, al solo leer símbolos de la entrada, y los únicos símbolos para comprobar que está en espacio $L$ son los nuevos escritos, esta MT se encuentra en espacio $L$, y por lo tanto todo lenguaje regular está en $L$.
 
 \section*{Ejercicio 3:}
 
